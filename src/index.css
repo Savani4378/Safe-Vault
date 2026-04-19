@@ -1,0 +1,34 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --color-deep: #0a0a0b;
+  --color-panel: #151619;
+  --color-card: #1c1d21;
+  --color-cyan: #00f2ff;
+  --color-red: #ff3e3e;
+  --color-border-subtle: #2a2c33;
+  --color-tx-main: #e0e0e0;
+  --color-tx-dim: #70757a;
+
+  --font-mono: 'Courier New', Courier, monospace;
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+body {
+  background-color: var(--color-deep);
+  color: var(--color-tx-main);
+  font-family: var(--font-sans);
+}
+
+.shadow-cyan {
+  box-shadow: 0 0 10px var(--color-cyan);
+}
+
+.bg-radial-gradient {
+  background: radial-gradient(circle at top right, #1a1a2e 0%, var(--color-deep) 60%);
+}
+
+.gradient-unlocked {
+  background: linear-gradient(135deg, var(--color-card) 0%, #152026 100%);
+}
