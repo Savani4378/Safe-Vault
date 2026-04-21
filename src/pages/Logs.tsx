@@ -29,9 +29,9 @@ export default function Logs() {
   }, []);
 
   const getIcon = (type: string) => {
-    if (type.includes('FAILED') || type.includes('ERROR')) return <XCircle className="w-5 h-5 text-red-500" />;
-    if (type.includes('SUCCESS') || type.includes('SETUP')) return <CheckCircle className="w-5 h-5 text-green-400" />;
-    return <ShieldAlert className="w-5 h-5 text-indigo-400" />;
+    if (type.includes('FAILED') || type.includes('ERROR')) return <XCircle className="w-5 h-5 text-red" />;
+    if (type.includes('SUCCESS') || type.includes('SETUP')) return <CheckCircle className="w-5 h-5 text-cyan" />;
+    return <ShieldAlert className="w-5 h-5 text-tx-dim" />;
   };
 
   if (loading) return <div className="text-white text-center py-20 font-mono text-[11px]">Analyzing security logs...</div>;
@@ -39,37 +39,38 @@ export default function Logs() {
   return (
     <div className="max-w-4xl">
       <div className="mb-8">
-        <h1 className="text-3xl font-light text-white flex items-center gap-3">
-          <Activity className="w-8 h-8 text-indigo-500" /> Security Audit
-        </h1>
-        <p className="text-neutral-400 mt-1">Review system activity, authentication attempts, and vault modifications.</p>
+        <div className="flex items-center gap-3">
+          <Activity className="w-8 h-8 text-cyan" />
+          <h1 className="text-[24px] font-light text-tx-main">Security Audit</h1>
+        </div>
+        <p className="text-[13px] text-tx-dim mt-1">Review system activity, authentication attempts, and vault modifications.</p>
       </div>
 
-      <div className="bg-neutral-900 border border-neutral-800 rounded-2xl overflow-hidden">
+      <div className="bg-black border border-[#333] rounded-[2px] overflow-hidden">
         {logs.length === 0 ? (
-          <div className="text-center py-12 text-neutral-500 font-mono text-[11px]">No security events logged yet.</div>
+          <div className="text-center py-12 text-tx-dim font-mono text-[11px]">No security events logged yet.</div>
         ) : (
-          <div className="divide-y divide-neutral-800">
+          <div className="divide-y divide-[#333]">
             {logs.map((log) => (
               <motion.div 
                 key={log.id} 
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                className="p-4 hover:bg-neutral-800/20 transition-colors flex items-start gap-4"
+                className="p-4 hover:bg-[#111] transition-colors flex items-start gap-4"
               >
                 <div className="mt-1">
                   {getIcon(log.event_type)}
                 </div>
                 <div className="flex-1">
                   <div className="flex items-center justify-between mb-1 text-sm font-mono">
-                    <span className={`tracking-wide ${log.event_type.includes('FAILED') ? 'text-red-400' : 'text-indigo-400'}`}>
+                    <span className={`tracking-wide text-[11px] uppercase ${log.event_type.includes('FAILED') ? 'text-red' : 'text-cyan'}`}>
                       {log.event_type}
                     </span>
-                    <span className="text-neutral-500">
+                    <span className="text-[11px] text-tx-dim">
                       {new Date(log.timestamp).toLocaleString()}
                     </span>
                   </div>
-                  <p className="text-sm text-neutral-300">{log.details}</p>
+                  <p className="text-[13px] text-tx-main">{log.details}</p>
                 </div>
               </motion.div>
             ))}

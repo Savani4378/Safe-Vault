@@ -1,10 +1,11 @@
--- PostgreSQL Schema for VaultGuard
+-- PostgreSQL Schema for Safe Vault
 
 CREATE TABLE Users (
     id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
     pin_hash VARCHAR(255) NOT NULL,
     salt VARCHAR(255) NOT NULL,
-    biometric_enabled BOOLEAN DEFAULT FALSE,
+    totp_secret VARCHAR(255),
+    totp_enabled BOOLEAN DEFAULT FALSE,
     created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
 );
 

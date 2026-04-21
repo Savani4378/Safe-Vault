@@ -7,6 +7,8 @@ export interface User {
   id: string;
   pin_hash: string;
   salt: string;
+  totp_secret?: string;
+  totp_enabled?: boolean;
 }
 
 export interface Vault {

@@ -45,6 +45,7 @@ export default function Dashboard() {
   const handleCreate = async (e: React.FormEvent) => {
     e.preventDefault();
     if (files.length === 0) return alert('Please select files');
+    if (newVaultPin.length !== 6) return alert('PIN must be exactly 6 digits');
     
     setCreateLoading(true);
     const formData = new FormData();
@@ -76,6 +77,7 @@ export default function Dashboard() {
   };
 
   const handleUnlock = async (id: string, name: string) => {
+    if (unlockPin.length !== 6) return alert('PIN must be exactly 6 digits');
     try {
       const res = await api.post('/vault/unlock', { vault_id: id, pin: unlockPin }, { responseType: 'blob' });
       // Download blob

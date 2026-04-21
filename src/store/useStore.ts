@@ -2,6 +2,7 @@ import { create } from 'zustand';
 
 interface User {
   id: string;
+  totp_enabled?: boolean;
 }
 
 interface AuthState {

@@ -1,6 +1,6 @@
 {
-  "name": "",
-  "description": "",
+  "name": "Safe Vault",
+  "description": "A professional secure vault manager to encrypt files and folders into AES-256 containers with a stealth UI option.",
   "requestFramePermissions": [],
   "majorCapabilities": []
 }

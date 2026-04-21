@@ -1,6 +1,6 @@
-# VaultGuard Secure Vault System
+# Safe Vault Secure Vault System
 
-VaultGuard is a professional secure vault manager built with an Express backend and React frontend. It encrypts your files and folders into secure AES-256 containers and ensures privacy utilizing PIN hashes (Argon2) and optional stealth mode.
+Safe Vault is a professional secure vault manager built with an Express backend and React frontend. It encrypts your files and folders into secure AES-256 containers and ensures privacy utilizing PIN hashes (Argon2) and optional stealth mode.
 
 ## Architecture & Stack
 
@@ -45,7 +45,7 @@ npm start
 
 ### 3. Packaging as Desktop Application (Electron)
 
-To wrap VaultGuard as a standalone desktop vault manager:
+To wrap Safe Vault as a standalone desktop vault manager:
 1. Initialize an Electron project.
 2. Build the app utilizing `npm run build`.
 3. Inside your `main.js` Electron entry point, fork the Express `server.ts` process.
